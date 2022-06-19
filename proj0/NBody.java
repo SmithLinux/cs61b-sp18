@@ -34,23 +34,22 @@ public class NBody {
     }
 
     public static void main(String args[]) {
-        double timeCount = 0;
+        double timeStart = 0;
+
         double T = Double.parseDouble(args[0]);
         double dt = Double.parseDouble(args[1]);
         String filename = args[2];
+
         double radius = readRadius(filename);
         Planet[] planets = readPlanets(filename);
+
+        StdDraw.setScale(-radius, radius);
+        StdDraw.enableDoubleBuffering();
+
         double xForces[] = new double[planets.length];
         double yForces[] = new double[planets.length];
 
-
-
-
-
-
-        while (timeCount < T) {
-            StdDraw.enableDoubleBuffering();
-            StdDraw.setScale(-radius, radius);
+        while (timeStart < T) {
             StdDraw.clear();
             StdDraw.picture(0, 0, "images/starfield.jpg");
             int index = 0;
@@ -71,10 +70,10 @@ public class NBody {
 
             StdDraw.show();
             StdDraw.pause(10);
-            timeCount += dt;
+            timeStart += dt;
 
             for (Planet p: planets) {
-                p.update(timeCount, xForces[index], yForces[index]);
+                p.update(dt, xForces[index], yForces[index]);
                 index++;
             }
         }
