@@ -70,7 +70,7 @@ public class NBody {
 
 
             StdDraw.show();
-            StdDraw.pause(100);
+            StdDraw.pause(10);
             timeCount += dt;
 
             for (Planet p: planets) {
