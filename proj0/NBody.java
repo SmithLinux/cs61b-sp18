@@ -33,7 +33,7 @@ public class NBody {
         return planets;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         double timeStart = 0;
 
         double T = Double.parseDouble(args[0]);
@@ -46,8 +46,8 @@ public class NBody {
         StdDraw.setScale(-radius, radius);
         StdDraw.enableDoubleBuffering();
 
-        double xForces[] = new double[planets.length];
-        double yForces[] = new double[planets.length];
+        double[] xForces = new double[planets.length];
+        double[] yForces = new double[planets.length];
 
         while (timeStart < T) {
             StdDraw.clear();
